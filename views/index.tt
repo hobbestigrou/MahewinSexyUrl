@@ -1,0 +1,16 @@
+<% IF message %>
+    <p><% message %> <% seyx_url %></p>
+<% END %>
+
+<p>Get my sexy url</p>
+<form method="post">
+    <label for="sexy_url">Sexy url:</label>
+    <input type="text" id="sexy_url" name="sexy_url" value="http://" />
+</form>
+
+<p>What is long url of this sexy url</p>
+<form method="post" action="get_long_url">
+    <label for="long_url">Long url:</label>
+    <input type="text" id="long_url" name="long_url" />
+</form>
+

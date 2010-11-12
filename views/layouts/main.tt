@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>MahewinSexyUrl</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Tangerine&subset=latin' rel='stylesheet' type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin' rel='stylesheet' type="text/css">
+        <meta charset=UTF-8" />
+    </head>
+    <body>
+        <h1>MahewinSexyUrl</h1>
+        <div id="content">
+            <% content %>
+        </div>
+        <footer>
+        Powered by <a href="http://perldancer.org/">Dancer</a> and MahewinSexyUrl
+        </footer>
+    </body>
+</html>

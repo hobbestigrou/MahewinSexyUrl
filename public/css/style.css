@@ -1,0 +1,37 @@
+body {                                                                                                                                                              
+    color: #228B22;
+    background: #B8860B url('nicubunu_Woman_Silhouette_10.png') no-repeat right bottom;
+    min-height: 750px;
+    font-family: 'Philosopher', arial, serif;
+    font-size: 2em;
+}
+
+h1 {
+    font-family: 'Tangerine', arial, serif;
+}
+
+a:link {
+    color: #B22222;
+}
+
+a:visited {
+    color: #B22222;
+}
+
+a:active {
+    color: #B22222;
+}
+
+#content {
+    background: white;
+    color: #CD853F;
+    margin-top: -35px;
+    padding: 2px 5px 5px 15px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+footer {
+    margin-top: 15px;
+}
