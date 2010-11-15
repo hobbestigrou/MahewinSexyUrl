@@ -1,5 +1,5 @@
 <% IF message %>
-    <p><% message %> <% seyx_url %></p>
+    <p><% message %> <a href="<% url %>"><% url %></a></p>
 <% END %>
 
 <p>Get my sexy url</p>

@@ -18,12 +18,14 @@ post '/' => sub {
             long_url => params->{sexy_url}, 
         });
         return template 'index.tt', { 
-            message  => "This long url exist, and whouah! It's very beautiful $search_long_url->{_column_data}->{sexy_url}",
+            message  => "This long url exist, and whouah! It's very beautiful",
+            url      => "$search_long_url->{_column_data}->{sexy_url}"
         };
     }
 
     return template 'index.tt', {
-        message => "Whouah ! This a very beautiful url :) $long_url"
+        message => "Whouah ! This a very beautiful url :)",
+        url     => "$long_url"
     };
 };
 
@@ -37,7 +39,8 @@ post '/get_long_url' => sub {
     }
 
     return template 'index.tt', {
-        message => "The long url is $sexy_url"
+        message => "The long url is $sexy_url",
+        url     => "$sexy_url"
     };
 };
 
