@@ -74,7 +74,7 @@ sub create_sexy_url {
     }
     
     my $id       = luniqid;
-    my $size     = int(rand(10));
+    my $size     = 14 + int(rand(3));
     my $sexy_url = substr($id, $size);
 
     my $search_sexy_url = schema('db')->resultset('Url')->find({
