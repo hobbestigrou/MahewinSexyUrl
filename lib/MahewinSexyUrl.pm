@@ -3,7 +3,7 @@ use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
 use Data::Uniqid qw ( luniqid );
 
-our $VERSION = '0.1';
+our $VERSION = '0.3';
 
 get '/' => sub {
     template 'index';
@@ -29,17 +29,21 @@ post '/' => sub {
     };
 };
 
+get '/get_long_url' => sub {
+    template 'long_url.tt';
+};
+
 post '/get_long_url' => sub {
     my $sexy_url = get_long_url(params->{long_url});
 
     if ( ! $sexy_url ) {
-        return template 'index.tt', {
+        return template 'long_url.tt', {
             message => "This long url is not here."
         };
     }
 
-    return template 'index.tt', {
-        message => "The long url is $sexy_url",
+    return template 'long_url.tt', {
+        message => "The long url is",
         url     => "$sexy_url"
     };
 };

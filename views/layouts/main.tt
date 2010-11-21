@@ -13,7 +13,7 @@
             <% content %>
         </div>
         <footer>
-        Powered by <a href="http://perldancer.org/">Dancer</a> and MahewinSexyUrl
+            Powered by <a href="http://perldancer.org/">Dancer</a> and <a href="http://github.com/hobbestigrou/MahewinSexyUrl">MahewinSexyUrl</a>
         </footer>
     </body>
 </html>

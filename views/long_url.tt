@@ -1,0 +1,11 @@
+<% IF message %>
+    <p><% message %> <a href="<% url %>"><% url %></a></p>
+<% END %>
+
+<p>What is long url of this sexy url</p>
+<form method="post" action="get_long_url">
+    <label for="long_url">Long url:</label>
+    <input type="text" id="long_url" name="long_url" />
+    <input type="submit" value="Go" />
+</form>
+
