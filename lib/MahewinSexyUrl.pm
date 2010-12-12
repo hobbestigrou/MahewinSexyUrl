@@ -1,7 +1,6 @@
 package MahewinSexyUrl;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
-use Data::Uniqid qw ( luniqid );
 
 our $VERSION = '0.3';
 
@@ -77,9 +76,7 @@ sub create_sexy_url {
         return 0;
     }
     
-    my $id       = luniqid;
-    my $size     = 14 + int(rand(3));
-    my $sexy_url = substr($id, $size);
+    my $sexy_url = generate_uniqid();
 
     my $search_sexy_url = schema('db')->resultset('Url')->find({
         sexy_url => $sexy_url, 
@@ -113,6 +110,28 @@ sub get_long_url {
     }
     
     return $search_sexy_url->{_column_data}->{long_url}; 
+}
+
+sub generate_uniqid {
+    my $uniq_id = '';
+    my $length  = 2 + int(rand(4));
+
+    for ( my $i = 0; $i < $length; )  {
+        my $rand = chr(int(rand(127)));
+
+        if ( $rand =~ /[a-zA-Z0-9]/ ) {
+            $uniq_id .= $rand;
+            $i++;
+        }
+    }
+
+    my $search = schema('db')->resultset('Url')->find({
+        sexy_url => $uniq_id
+    });
+
+    $uniq_id .= 1 if ( $search );
+
+    return $uniq_id;
 }
 
 =head1 AUTHOR 
