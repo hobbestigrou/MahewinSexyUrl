@@ -1,0 +1,14 @@
+0.5 19/12/2010
+    Validate uri.
+
+0.4 12/12/2010
+    Add functions for create uniq url, and remove the depends with Data::Uniq.
+
+0.3 21/11/2010
+    Seperate form and add a new page for know long url.
+
+0.2 21/11/2010
+    Uniq more little.
+
+0.1 12/11/2010
+    Initial version developed.
