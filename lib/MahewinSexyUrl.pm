@@ -70,7 +70,7 @@ get '/:sexy_url' => sub {
 
 =head1 create_sexy_url
 
-This function is to create a sexy_url. Use luniqid from Data::Uniqid.
+This function is to create a sexy_url.
 
 =cut
 
