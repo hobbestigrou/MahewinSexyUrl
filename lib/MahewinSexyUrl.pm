@@ -1,6 +1,7 @@
 package MahewinSexyUrl;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
+use Data::Validate::URI;
 
 our $VERSION = '0.3';
 
@@ -9,6 +10,14 @@ get '/' => sub {
 };
 
 post '/' => sub {
+    my $validate_uri = validate_uri(params->{sexy_url});
+
+    if ( !$validate_uri ) {
+        return template 'index.tt', { 
+            message  => "The uri is not valid.",
+        };
+    }
+
     my $long_url = create_sexy_url(params->{sexy_url});
 
     if ( ! $long_url ) {
@@ -132,6 +141,19 @@ sub generate_uniqid {
     $uniq_id .= 1 if ( $search );
 
     return $uniq_id;
+}
+
+sub validate_uri {
+    my ( $uri ) = @_;
+
+    my $v        = Data::Validate::URI->new();
+    my $validate = $v->is_uri($uri);
+
+    if ( $validate ) {
+        return 1;
+    }
+   
+   return 0;
 }
 
 =head1 AUTHOR 
