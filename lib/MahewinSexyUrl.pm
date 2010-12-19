@@ -3,7 +3,7 @@ use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
 use Data::Validate::URI;
 
-our $VERSION = '0.3';
+our $VERSION = '0.5';
 
 get '/' => sub {
     template 'index';
