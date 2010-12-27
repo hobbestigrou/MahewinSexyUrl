@@ -93,12 +93,12 @@ sub create_sexy_url {
 
     $sexy_url .= 1 if ( $search_sexy_url );
 
-    schema('db')->resultset('Url')->create({
+    my $create_url = schema('db')->resultset('Url')->create({
         long_url => $long_url,
         sexy_url => $sexy_url
     });
 
-    return $sexy_url;
+    return $sexy_url if $create_url;
 }
 
 =head1 get_long_url
