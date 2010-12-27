@@ -2,7 +2,7 @@ layout: "main"
 logger: "file"
 appname: "MahewinSexyUrl"
 template: template_toolkit
-charset: utf-8̈́
+charset: utf-8
 plugins:
   DBIC:
     db:
