@@ -25,9 +25,10 @@ post '/' => sub {
         my $search_long_url = schema('db')->resultset('Url')->find({
             long_url => params->{sexy_url}, 
         });
+        my $search_long_link = $search_long_url->sexy_url;
         return template 'index.tt', { 
             message  => "This long url exist, and whouah! It's very beautiful",
-            url      => "$search_long_url->{_column_data}->{sexy_url}"
+            url      => "$search_long_link"
         };
     }
 
@@ -65,7 +66,7 @@ get '/:sexy_url' => sub {
         return send_error("This sexy url not exist, sorry", 404);
     }
     
-    redirect $search_sexy_url->{_column_data}->{long_url};
+    redirect $search_sexy_url->long_url;
 };
 
 =head1 create_sexy_url
@@ -118,7 +119,7 @@ sub get_long_url {
         return 0;
     }
     
-    return $search_sexy_url->{_column_data}->{long_url}; 
+    return $search_sexy_url->long_url; 
 }
 
 sub generate_uniqid {
