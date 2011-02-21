@@ -1,3 +1,6 @@
+0.6 21/02/2011
+    Update Dancer, and use getteur setteur DBIx. 
+
 0.5 19/12/2010
     Validate uri.
 
