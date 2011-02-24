@@ -12,7 +12,8 @@ get '/' => sub {
 post '/' => sub {
     my $validate_uri = validate_uri(params->{sexy_url});
 
-    if ( !$validate_uri ) {
+    if ( ! $validate_uri ) {
+        header 'X-UrlNoValid' => "The uri is not valid";
         return template 'index.tt', { 
             message  => "The uri is not valid.",
         };
@@ -26,12 +27,15 @@ post '/' => sub {
             long_url => params->{sexy_url}, 
         });
         my $search_long_link = $search_long_url->sexy_url;
+
+        header 'X-ShortUrl' => $search_long_link;
         return template 'index.tt', { 
             message  => "This long url exist, and whouah! It's very beautiful",
             url      => "$search_long_link"
         };
     }
 
+    header 'X-ShortUrl' => $long_url;
     return template 'index.tt', {
         message => "Whouah ! This a very beautiful url :)",
         url     => "$long_url"
