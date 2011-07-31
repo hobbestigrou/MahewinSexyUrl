@@ -55,6 +55,7 @@ post '/get_long_url' => sub {
         };
     }
 
+    header 'X-LongUrl' => $sexy_url;
     return template 'long_url.tt', {
         message => "The long url is",
         url     => "$sexy_url"
