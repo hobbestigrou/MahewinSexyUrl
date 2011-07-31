@@ -2,9 +2,20 @@
 <html lang="en-US">
     <head>
         <title>MahewinSexyUrl</title>
+
         <link rel="stylesheet" href="/css/style.css" />
         <link href='http://fonts.googleapis.com/css?family=Tangerine&subset=latin' rel='stylesheet' type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin' rel='stylesheet' type="text/css">
+
+        <script type="text/javascript" src="/javascripts/jquery.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery.placeholder.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('input[placeholder]').placeholder();
+            });
+        </script>
+
         <meta charset=UTF-8" />
     </head>
     <body>
