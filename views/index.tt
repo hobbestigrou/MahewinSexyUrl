@@ -1,5 +1,6 @@
 <% IF message %>
-    <p><% message %> <a href="<% url %>"><% url %></a></p>
+    <% host = request.uri_base.remove(':\d+') %>
+    <p><% message %> <a href="<% url %>"><% host _ '/' _ url %></a></p>
 <% END %>
 
 <p>Give me a sexy url</p>
