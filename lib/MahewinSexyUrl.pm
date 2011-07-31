@@ -14,7 +14,7 @@ post '/' => sub {
 
     if ( ! $validate_uri ) {
         header 'X-UrlNoValid' => "The uri is not valid";
-        return template 'index.tt', { 
+        return template 'index.tt', {
             message  => "The uri is not valid.",
         };
     }
@@ -22,14 +22,14 @@ post '/' => sub {
     my $long_url = create_sexy_url(params->{sexy_url});
 
     if ( ! $long_url ) {
-        
+
         my $search_long_url = schema('db')->resultset('Url')->find({
-            long_url => params->{sexy_url}, 
+            long_url => params->{sexy_url},
         });
         my $search_long_link = $search_long_url->sexy_url;
 
         header 'X-ShortUrl' => $search_long_link;
-        return template 'index.tt', { 
+        return template 'index.tt', {
             message  => "This long url exist, and whouah! It's very beautiful",
             url      => "$search_long_link"
         };
@@ -63,13 +63,13 @@ post '/get_long_url' => sub {
 
 get '/:sexy_url' => sub {
     my $search_sexy_url = schema('db')->resultset('Url')->find({
-        sexy_url => params->{sexy_url}, 
+        sexy_url => params->{sexy_url},
     });
-     
+
     if ( ! $search_sexy_url ) {
         return send_error("This sexy url not exist, sorry", 404);
     }
-    
+
     redirect $search_sexy_url->long_url;
 };
 
@@ -89,7 +89,7 @@ sub create_sexy_url {
     if ( $search_long_url ) {
         return 0;
     }
-    
+
     my $sexy_url = generate_uniqid();
 
     my $search_sexy_url = schema('db')->resultset('Url')->find({
@@ -122,7 +122,7 @@ sub get_long_url {
     if ( ! $search_sexy_url ) {
         return 0;
     }
-    
+
     return $search_sexy_url->long_url; 
 }
 
@@ -157,11 +157,11 @@ sub validate_uri {
     if ( $validate ) {
         return 1;
     }
-   
+
    return 0;
 }
 
-=head1 AUTHOR 
+=head1 AUTHOR
 
 Natal Ngétal
 
