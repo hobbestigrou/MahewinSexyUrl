@@ -6,7 +6,7 @@
 <p>Give me a sexy url</p>
 <form method="post">
     <label for="sexy_url">Sexy url:</label>
-    <input type="text" id="sexy_url" name="sexy_url" value="http://" />
+    <input type="url" id="sexy_url" name="sexy_url" placeholder="http://" />
     <input type="submit" value="Generate my sexy url" />
 </form>
 
